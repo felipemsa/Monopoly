@@ -3,29 +3,37 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
-    
-    <TextView 
-        android:id="@+id/tvNumber"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_margin="5dp"
-        android:layout_weight=".15"
-        />
-    
-    <TextView 
-        android:id="@+id/tvDetail"
+
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_weight=".70"
-        />
-    
-    <Switch 
-        android:id="@+id/swHave"
+        android:layout_height="wrap_content"
+        android:layout_weight=".7"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivHave"
         android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_weight=".15"
-        android:textOn="@string/lb_have"
-        android:textOff="@string/lb_dont_have"
-        />
+        android:layout_height="match_parent"
+        android:layout_weight=".3"
+        android:layout_gravity="center"
+        android:contentDescription="@null" />
 
 </LinearLayout>

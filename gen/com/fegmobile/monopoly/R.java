@@ -1177,6 +1177,8 @@ containing a value of this type.
         public static final int ic_plusone_small_off_client=0x7f020071;
         public static final int ic_plusone_standard_off_client=0x7f020072;
         public static final int ic_plusone_tall_off_client=0x7f020073;
+        public static final int right_check_mark=0x7f020074;
+        public static final int wrong_check_mark=0x7f020075;
     }
     public static final class id {
         public static final int action_bar=0x7f06001f;
@@ -1190,8 +1192,8 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f060019;
         public static final int action_menu_presenter=0x7f06001a;
         public static final int action_mode_close_button=0x7f060027;
-        public static final int action_settings=0x7f06004c;
-        public static final int action_user=0x7f06004b;
+        public static final int action_settings=0x7f06004d;
+        public static final int action_user=0x7f06004c;
         public static final int activity_chooser_view_content=0x7f060028;
         public static final int always=0x7f06000f;
         public static final int beginning=0x7f060014;
@@ -1204,9 +1206,9 @@ containing a value of this type.
         public static final int dropdown=0x7f060013;
         public static final int edit_query=0x7f060033;
         public static final int end=0x7f060016;
-        public static final int etEmail=0x7f060049;
-        public static final int etPass=0x7f060047;
-        public static final int etUser=0x7f060046;
+        public static final int etEmail=0x7f060047;
+        public static final int etPass=0x7f060045;
+        public static final int etUser=0x7f060044;
         public static final int expand_activities_button=0x7f060029;
         public static final int expanded_menu=0x7f06002f;
         public static final int home=0x7f060017;
@@ -1215,9 +1217,11 @@ containing a value of this type.
         public static final int icon=0x7f06002d;
         public static final int ifRoom=0x7f06000e;
         public static final int image=0x7f06002a;
+        public static final int ivHave=0x7f06004b;
         public static final int listMode=0x7f060005;
         public static final int list_item=0x7f06002c;
         public static final int lnBanBotton=0x7f060042;
+        public static final int lvCards=0x7f060043;
         public static final int middle=0x7f060015;
         public static final int never=0x7f06000d;
         public static final int none=0x7f060000;
@@ -1242,17 +1246,16 @@ containing a value of this type.
         public static final int showTitle=0x7f06000a;
         public static final int split_action_bar=0x7f060021;
         public static final int submit_area=0x7f06003c;
-        public static final int swHave=0x7f060045;
         public static final int tabMode=0x7f060006;
         public static final int terrain=0x7f060003;
         public static final int title=0x7f06002e;
         public static final int top_action_bar=0x7f060023;
-        public static final int tvDetail=0x7f060044;
-        public static final int tvLogin=0x7f060048;
-        public static final int tvNumber=0x7f060043;
+        public static final int tvDetail=0x7f06004a;
+        public static final int tvLogin=0x7f060046;
+        public static final int tvNumber=0x7f060049;
         public static final int tvSignIn=0x7f060041;
         public static final int tvSignUp=0x7f060040;
-        public static final int tvSignup=0x7f06004a;
+        public static final int tvSignup=0x7f060048;
         public static final int up=0x7f060024;
         public static final int useLogo=0x7f060007;
         public static final int withText=0x7f060010;
@@ -1308,10 +1311,10 @@ containing a value of this type.
         public static final int abc_search_dropdown_item_icons_2line=0x7f030015;
         public static final int abc_search_view=0x7f030016;
         public static final int activity_main=0x7f030017;
-        public static final int fragment_main=0x7f030018;
-        public static final int item_list_row=0x7f030019;
-        public static final int sing_in=0x7f03001a;
-        public static final int sing_up=0x7f03001b;
+        public static final int activity_perfil=0x7f030018;
+        public static final int activity_sing_in=0x7f030019;
+        public static final int activity_sing_up=0x7f03001a;
+        public static final int item_list_row=0x7f03001b;
         public static final int support_simple_spinner_dropdown_item=0x7f03001c;
     }
     public static final class menu {

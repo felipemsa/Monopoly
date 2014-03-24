@@ -2,6 +2,7 @@ package com.fegmobile.monopoly.activity;
 
 import static android.widget.Toast.makeText;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,7 +24,7 @@ public class SigninActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setContentView(R.layout.sing_in);
+		setContentView(R.layout.activity_sing_in);
 
 		Parse.initialize(this,
 				getResources().getString(R.string.PARSE_APPLICATION_ID),
@@ -47,6 +48,9 @@ public class SigninActivity extends Activity {
 							makeText(getApplicationContext(),
 									"Logado com sucesso!", Toast.LENGTH_SHORT)
 									.show();
+							Intent i = new Intent(getApplicationContext(),PerfilActivity.class);
+							i.putExtra("isMe",true);
+							startActivity(i);
 						} else {
 							pe.printStackTrace();
 						}

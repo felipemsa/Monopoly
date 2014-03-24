@@ -5,6 +5,7 @@ import static android.widget.Toast.makeText;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,7 +29,7 @@ public class SignupActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setContentView(R.layout.sing_up);
+		setContentView(R.layout.activity_sing_up);
 
 		Parse.initialize(this,
 				getResources().getString(R.string.PARSE_APPLICATION_ID),
@@ -69,6 +70,9 @@ public class SignupActivity extends Activity {
 													getApplicationContext(),
 													"Cadastro efetuado com sucesso!",
 													Toast.LENGTH_SHORT).show();
+											Intent i = new Intent(getApplicationContext(),PerfilActivity.class);
+											i.putExtra("isMe",true);
+											startActivity(i);
 										} else {
 											pe.printStackTrace();
 										}
