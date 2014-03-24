@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Parse keys begin -->
+    <string name="PARSE_CLIENT_KEY">id3HUe7FjFu1Uv9LxNL62qpBuOPnGfxVSVHQgKlZ</string>
+    <string name="PARSE_APPLICATION_ID">D9G2m65Wbq4jFDD9fpUOZgzDKpbYSShUtNlIQpCo</string>
+    <!-- Parse keys end -->
+    
+    <string name="app_name">Monopoly</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_user">Login</string>
+    <string name="lb_have">Tenho</string>
+    <string name="lb_dont_have">Não Tenho</string>
+    <string name="app_monopoly">App Monopoly</string>
+    <string name="wellcome_string">Faça seu Login ou Cadastre-se para começar</string>
+    <string name="sign_up">Cadastre-se</string>
+    <string name="sign_in">Login</string>
+    <string name="AD_UNIT_ID_TOP">ca-app-pub-7746920603636507/4275014071</string>
+    <string name="AD_UNIT_ID_BOTTON">ca-app-pub-7746920603636507/2798280870</string>
+    <string name="lb_email">email</string>
+    <string name="lb_pass">senha</string>
+
+</resources>
