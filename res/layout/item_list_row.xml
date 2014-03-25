@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lnCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
@@ -7,8 +8,9 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight=".7"
-        android:orientation="vertical" >
+        android:layout_weight=".8"
+        android:orientation="vertical"
+        android:paddingLeft="5dp" >
 
         <TextView
             android:id="@+id/tvNumber"
@@ -28,12 +30,11 @@
             android:textSize="16sp" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/ivHave"
+    <CheckBox
+        android:id="@+id/checkHave"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight=".3"
         android:layout_gravity="center"
-        android:contentDescription="@null" />
+        android:layout_weight=".2" />
 
 </LinearLayout>

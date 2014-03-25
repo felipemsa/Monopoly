@@ -40,6 +40,8 @@ public class SignupActivity extends Activity {
 		etUser = (EditText) findViewById(R.id.etEmail);
 		etPass = (EditText) findViewById(R.id.etPass);
 
+		etUser.requestFocus();
+		
 		tvLogin = (TextView) findViewById(R.id.tvSignup);
 		tvLogin.setOnClickListener(new OnClickListener() {
 			@Override

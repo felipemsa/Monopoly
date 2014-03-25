@@ -20,5 +20,6 @@
     <string name="AD_UNIT_ID_BOTTON">ca-app-pub-7746920603636507/2798280870</string>
     <string name="lb_email">email</string>
     <string name="lb_pass">senha</string>
+    <string name="lb_save">Salvar</string>
 
 </resources>

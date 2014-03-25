@@ -35,6 +35,8 @@ public class SigninActivity extends Activity {
 		etUser = (EditText) findViewById(R.id.etUser);
 		etPass = (EditText) findViewById(R.id.etPass);
 
+		etUser.requestFocus();
+		
 		tvLogin = (TextView) findViewById(R.id.tvLogin);
 		tvLogin.setOnClickListener(new OnClickListener() {
 			@Override

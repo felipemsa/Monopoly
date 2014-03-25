@@ -6,7 +6,7 @@ import com.parse.ParseQuery;
 public class ParseQueryManager {
 
 	public ParseQuery<ParseObject> getAllCards() {
-		ParseQuery<ParseObject> query = new ParseQuery<>("Cards");
+		ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Cards");
 
 		return query;
 	}
