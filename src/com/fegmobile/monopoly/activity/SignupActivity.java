@@ -5,6 +5,7 @@ import static android.widget.Toast.makeText;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -46,6 +47,9 @@ public class SignupActivity extends Activity {
 		tvLogin.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				final ProgressDialog pd = new ProgressDialog(SignupActivity.this);
+				pd.setMessage("Criando usu‡rio...");
+				pd.show();
 				final String email = etUser.getText().toString();
 				final String pass = etPass.getText().toString();
 
@@ -72,8 +76,9 @@ public class SignupActivity extends Activity {
 													getApplicationContext(),
 													"Cadastro efetuado com sucesso!",
 													Toast.LENGTH_SHORT).show();
-											Intent i = new Intent(getApplicationContext(),PerfilActivity.class);
+											Intent i = new Intent(getApplicationContext(),CardsActivity.class);
 											i.putExtra("isMe",true);
+											pd.dismiss();
 											startActivity(i);
 										} else {
 											pe.printStackTrace();

@@ -7,14 +7,18 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,25 +29,25 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 import com.parse.ParseQuery.CachePolicy;
 import com.parse.ParseUser;
 
-public class PerfilActivity extends Activity
+public class CardsActivity extends Activity
 {
 	
 	ListView cardsList;
 	ParseQueryManager pqm;
 	public static ParseUser friendRequested;
 	public static List<String> list;
-	// public static List<ParseObject> cards;
-	TextView tvSave;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-		setContentView(R.layout.activity_perfil);
+		setContentView(R.layout.activity_cards);
 		
-		tvSave = (TextView) findViewById(R.id.tvSave);
+		final TextView tvSave = (TextView) findViewById(R.id.tvSave);
+		tvSave.setVisibility(View.GONE);
 		list = new ArrayList<String>();
 		final LinearLayout svCards = (LinearLayout) findViewById(R.id.svCards);
 		
@@ -88,6 +92,8 @@ public class PerfilActivity extends Activity
 						@Override
 						public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
 						{
+							if (tvSave.getVisibility() != View.VISIBLE)
+								expand(tvSave);
 							if (isChecked) {
 								list.add(card.getObjectId());
 							} else {
@@ -108,11 +114,77 @@ public class PerfilActivity extends Activity
 			@Override
 			public void onClick(View v)
 			{
+				collapse(tvSave);
+				final ProgressDialog pd = new ProgressDialog(CardsActivity.this);
+				pd.setMessage("Salvando...");
+				pd.show();
 				getCurrentUser().put("cards", list);
-				getCurrentUser().saveInBackground();
+				getCurrentUser().saveInBackground(new SaveCallback()
+				{
+					@Override
+					public void done(ParseException arg0)
+					{
+						pd.dismiss();
+					}
+				});
 			}
 		});
 		
 		super.onCreate(savedInstanceState);
+	}
+	
+	public static void expand(final View v)
+	{
+		v.measure(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		final int targtetHeight = v.getMeasuredHeight();
+		
+		v.getLayoutParams().height = 0;
+		v.setVisibility(View.VISIBLE);
+		Animation a = new Animation()
+		{
+			@Override
+			protected void applyTransformation(float interpolatedTime, Transformation t)
+			{
+				v.getLayoutParams().height = interpolatedTime == 1 ? LayoutParams.WRAP_CONTENT : (int) (targtetHeight * interpolatedTime);
+				v.requestLayout();
+			}
+			
+			@Override
+			public boolean willChangeBounds()
+			{
+				return true;
+			}
+		};
+		
+		a.setDuration(TimeUnit.SECONDS.toMillis(1));
+		v.startAnimation(a);
+	}
+	
+	public static void collapse(final View v)
+	{
+		final int initialHeight = v.getMeasuredHeight();
+		
+		Animation a = new Animation()
+		{
+			@Override
+			protected void applyTransformation(float interpolatedTime, Transformation t)
+			{
+				if (interpolatedTime == 1) {
+					v.setVisibility(View.GONE);
+				} else {
+					v.getLayoutParams().height = initialHeight - (int) (initialHeight * interpolatedTime);
+					v.requestLayout();
+				}
+			}
+			
+			@Override
+			public boolean willChangeBounds()
+			{
+				return true;
+			}
+		};
+		
+		a.setDuration(TimeUnit.SECONDS.toMillis(1));
+		v.startAnimation(a);
 	}
 }
