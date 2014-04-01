@@ -1,6 +1,6 @@
 package com.fegmobile.monopoly.activity;
 
-import static android.widget.Toast.makeText;
+import static com.fegmobile.monopoly.manager.UtilManager.dialog;
 
 import java.util.List;
 
@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fegmobile.monopoly.R;
 import com.parse.FindCallback;
@@ -72,25 +71,22 @@ public class SignupActivity extends Activity {
 									@Override
 									public void done(ParseException pe) {
 										if (pe == null) {
-											makeText(
-													getApplicationContext(),
-													"Cadastro efetuado com sucesso!",
-													Toast.LENGTH_SHORT).show();
 											Intent i = new Intent(getApplicationContext(),CardsActivity.class);
+											i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 											i.putExtra("isMe",true);
 											pd.dismiss();
 											startActivity(i);
+											finish();
 										} else {
 											pe.printStackTrace();
 										}
 									}
 								});
 							} else {
-								makeText(getApplicationContext(),
-										"Email j√° cadastrado!",
-										Toast.LENGTH_SHORT).show();
+								dialog(SignupActivity.this, "Cadastro", "Problemas com o cadastro.\n Este email já foi utilizado");
 							}
 						} else {
+							dialog(SignupActivity.this, "Cadastro", "Problemas com o cadastro.\n Tente novamente em instantes");
 							pe.printStackTrace();
 						}
 					}

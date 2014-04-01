@@ -1,5 +1,7 @@
 package com.fegmobile.monopoly.activity;
 
+import static com.fegmobile.monopoly.manager.UtilManager.collapse;
+import static com.fegmobile.monopoly.manager.UtilManager.expand;
 import static com.parse.ParseUser.getCurrentUser;
 
 import java.util.ArrayList;
@@ -13,12 +15,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,9 +28,9 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import com.parse.SaveCallback;
 import com.parse.ParseQuery.CachePolicy;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 public class CardsActivity extends Activity
 {
@@ -133,58 +132,4 @@ public class CardsActivity extends Activity
 		super.onCreate(savedInstanceState);
 	}
 	
-	public static void expand(final View v)
-	{
-		v.measure(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-		final int targtetHeight = v.getMeasuredHeight();
-		
-		v.getLayoutParams().height = 0;
-		v.setVisibility(View.VISIBLE);
-		Animation a = new Animation()
-		{
-			@Override
-			protected void applyTransformation(float interpolatedTime, Transformation t)
-			{
-				v.getLayoutParams().height = interpolatedTime == 1 ? LayoutParams.WRAP_CONTENT : (int) (targtetHeight * interpolatedTime);
-				v.requestLayout();
-			}
-			
-			@Override
-			public boolean willChangeBounds()
-			{
-				return true;
-			}
-		};
-		
-		a.setDuration(TimeUnit.SECONDS.toMillis(1));
-		v.startAnimation(a);
-	}
-	
-	public static void collapse(final View v)
-	{
-		final int initialHeight = v.getMeasuredHeight();
-		
-		Animation a = new Animation()
-		{
-			@Override
-			protected void applyTransformation(float interpolatedTime, Transformation t)
-			{
-				if (interpolatedTime == 1) {
-					v.setVisibility(View.GONE);
-				} else {
-					v.getLayoutParams().height = initialHeight - (int) (initialHeight * interpolatedTime);
-					v.requestLayout();
-				}
-			}
-			
-			@Override
-			public boolean willChangeBounds()
-			{
-				return true;
-			}
-		};
-		
-		a.setDuration(TimeUnit.SECONDS.toMillis(1));
-		v.startAnimation(a);
-	}
 }

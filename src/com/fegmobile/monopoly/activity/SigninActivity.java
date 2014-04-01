@@ -1,6 +1,6 @@
 package com.fegmobile.monopoly.activity;
 
-import static android.widget.Toast.makeText;
+import static com.fegmobile.monopoly.manager.UtilManager.dialog;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fegmobile.monopoly.R;
 import com.parse.LogInCallback;
@@ -50,14 +49,14 @@ public class SigninActivity extends Activity {
 					@Override
 					public void done(ParseUser user, ParseException pe) {
 						if (pe == null) {
-							makeText(getApplicationContext(),
-									"Logado com sucesso!", Toast.LENGTH_SHORT)
-									.show();
 							Intent i = new Intent(getApplicationContext(),CardsActivity.class);
 							i.putExtra("isMe",true);
+							i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 							pd.dismiss();
 							startActivity(i);
+							finish();
 						} else {
+							dialog(SigninActivity.this, "Cadastro", "Problemas com o login");
 							pe.printStackTrace();
 						}
 
