@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false" >
+
+    <item
+        android:drawable="@android:color/transparent"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice1"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice2"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice3"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice4"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice5"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice6"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice7"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice8"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice9"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice10"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice11"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice12"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice13"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice14"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/dice15"
+        android:duration="100"/>
+
+</animation-list>

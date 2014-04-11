@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bg_monopoly"
     android:paddingTop="15dp" >
 
     <EditText
@@ -33,7 +34,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="120dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/buttons"
         android:gravity="center"
         android:text="@string/sign_in"
         android:textColor="@android:color/white"

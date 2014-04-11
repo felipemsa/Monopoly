@@ -10,7 +10,6 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.fegmobile.monopoly.R;
-import com.parse.Parse;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -24,9 +23,8 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		Parse.initialize(this,
-				getResources().getString(R.string.PARSE_APPLICATION_ID),
-				getResources().getString(R.string.PARSE_CLIENT_KEY));
+		getActionBar().hide();
+		
 		/*
 		 * adView = new AdView(getActivity()); adView.setAdSize(AdSize.BANNER);
 		 * adView

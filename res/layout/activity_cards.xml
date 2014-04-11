@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_monopoly"
     android:orientation="vertical" >
 
     <ScrollView
@@ -24,7 +25,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/buttons"
         android:gravity="center"
         android:text="@string/lb_save"
         android:textColor="@android:color/white"
